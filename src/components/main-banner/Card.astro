@@ -1,0 +1,43 @@
+---
+const { src } = Astro.props
+---
+
+<div class="main-banner_card">
+    <img src={`/assets/${src}`} alt="dummy">
+    <div class="main-banner_card_details">
+        <a class="main-banner_card_details__title">الحبيب في الكبد دوماً… كيف تؤثر الأمازيغية في لغة العشق المغربية.</a>
+        <p class="main-banner_card_details__date">22 ديسمبر 2019</p>
+    </div>
+</div>
+
+
+<style lang="scss">
+    .main-banner_card {
+        @apply relative h-full w-full;
+
+        &::before, img {
+            @apply absolute left-0 right-0 w-full h-full;
+        }
+
+        img {
+            @apply z-0;
+        }
+
+        &::before {
+            content: '';
+            @apply block opacity-50 hover:opacity-80 transition-opacity bg-black z-10;
+        }
+
+        &_details {
+            @apply z-10 text-white relative h-full flex flex-col justify-end p-5;
+            &__title {
+                @apply text-3xl cursor-pointer p-0;
+            }
+
+            &__date {
+                @apply text-xl text-gray-400;
+            }
+        }
+    }
+</style>
+    

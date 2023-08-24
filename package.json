@@ -1,0 +1,20 @@
+{
+  "name": "test-blog",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^4.0.0",
+    "astro": "^2.10.12",
+    "bootstrap": "^5.3.1",
+    "bootstrap-icons": "^1.10.5",
+    "sass": "^1.66.1",
+    "tailwindcss": "^3.3.3"
+  }
+}
