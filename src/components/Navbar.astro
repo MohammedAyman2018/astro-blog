@@ -40,11 +40,19 @@
 
     div {
       &:not(.logo) {
-        @apply md:col-span-1 items-center justify-center gap-4 hidden md:flex;
+        @apply md:col-span-1 items-center justify-center gap-4;
+      }
+
+      &.social {
+        @apply hidden md:flex;
+      }
+
+      &.search {
+        @apply col-span-3 md:col-span-1 md:items-center items-end md:justify-center justify-end flex px-10; 
       }
 
       &.logo {
-        @apply col-span-6 md:col-span-4;
+        @apply col-span-3 md:col-span-4;
       }
     }
   }

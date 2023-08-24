@@ -2,6 +2,16 @@
 import Navbar from "../components/Navbar.astro";
 import Layout from "../layouts/Layout.astro";
 import MainBannerCard from "../components/main-banner/Card.astro";
+
+const posts = [
+  { src: "featured-guitarman.jpg.webp", type: "highlighted" },
+  { src: "featured-watch.jpg.webp", type: "normal" },
+  { src: "featured-beetle.jpg.webp", type: "normal" },
+
+  { src: "featured-watch.jpg.webp", type: "normal" },
+  { src: "featured-guitarman.jpg.webp", type: "highlighted" },
+  { src: "featured-beetle.jpg.webp", type: "normal" },
+];
 ---
 
 <Layout title="Welcome to Astro.">
@@ -10,24 +20,21 @@ import MainBannerCard from "../components/main-banner/Card.astro";
 
     <section class="main-banner-wrapper">
       <div class="main-banner">
-        <div class="main-post">
-          <MainBannerCard src="featured-guitarman.jpg.webp" />
-        </div>
-        <div>
-          <MainBannerCard src="featured-watch.jpg.webp" />
-        </div>
-        <div class="hidden md:block">
-          <MainBannerCard src="featured-beetle.jpg.webp" />
-        </div>
+        {
+          posts.map((post) => (
+            <div class={`${post.type}-post`}>
+              <MainBannerCard src={post.src} />
+            </div>
+          ))
+        }
       </div>
     </section>
-
   </section>
 </Layout>
 
 <style lang="scss">
   .first-section {
-    @apply bg-black min-h-screen flex flex-col justify-between;
+    @apply bg-black min-h-screen flex flex-col justify-between pb-5;
   }
 
   .main-banner-wrapper {
@@ -36,8 +43,12 @@ import MainBannerCard from "../components/main-banner/Card.astro";
     .main-banner {
       @apply grid md:grid-rows-2 md:grid-cols-3 gap-0 w-full;
 
-      .main-post {
+      .highlighted-post {
         @apply md:col-span-2 md:row-span-2;
+      }
+
+      div:not(.main-post) {
+        min-height: 300px;
       }
     }
   }
